@@ -14,7 +14,8 @@ if !exists("*vundle#rc")
     silent! call pathogen#inject()
 endif
 
-" Section: Preferred bundles {{{1
+"
+"Section: Preferred bundles {{{1
 Bundle 'gmarik/vundle'
 Bundle 'altercation/vim-colors-solarized'
 Bundle 'edsono/vim-matchit'
@@ -45,6 +46,7 @@ Bundle 'majutsushi/tagbar'
 Bundle 'Lokaltog/vim-easymotion'
 Bundle 'chrisbra/NrrwRgn'
 Bundle 'sukima/vim-docbk'
+Bundle 'altercation/solarized'
 
 " Section: Global Options {{{1
  
