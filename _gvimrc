@@ -1,0 +1,83 @@
+set nocompatible "Vi互換をオフ
+
+set showtabline=2 " タブを常に表示
+set transparency=5 " 透明度
+set imdisable " IME OFF
+set guioptions-=T " ツールバー非表示
+set antialias " アンチエイリアス
+set tabstop=4 " タブサイズ
+set shiftwidth=4 " インデント幅
+set number " 行番号表示
+set nobackup " バックアップなし
+set visualbell t_vb= " ビープ音なし
+
+colorscheme desert " カラースキーマ
+set columns=120 " 横幅
+set lines=45 " 行数
+
+set wrapscan " 検索をファイルの先頭へループしない
+
+" フォント設定
+set guifontwide=Osaka:h16
+set guifont=Osaka-Mono:h16
+
+" ノーマルモードではセミコロンをコロンに。
+nnoremap ; :
+
+" タブの表示
+set list
+set listchars=tab:>-,trail:-,extends:<,precedes:<
+
+" 全角スペースを視覚化
+highlight ZenkakuSpace cterm=underline ctermfg=lightblue guibg=#666666
+au BufNewFile,BufRead * match ZenkakuSpace /　/
+
+" 日本語入力をリセット
+au BufNewFile,BufRead * set iminsert=0
+"-------------------------------------------------
+" Move 移動設定
+"-------------------------------------------------
+" insert mode での移動
+inoremap <C-e> <END>
+inoremap <C-a> <HOME>
+inoremap <C-j> <Down>
+inoremap <C-k> <Up>
+inoremap <C-h> <Left>
+inoremap <C-l> <Right>
+inoremap <ESC> <ESC>:set iminsert=0<CR> " ESCでIMEを確実にOFF
+
+" 左右のカーソル移動で行間移動可能にする。
+set whichwrap=b,s,<,>,[,]
+
+" 新しい行のインデントを現在行と同じにする
+set autoindent
+
+" 新しい行を作ったときに高度な自動インデントを行う
+set smartindent
+
+" 挿入モード終了時に IME 状態を保存しない
+inoremap <silent> <Esc> <Esc>
+inoremap <silent> <C-[> <Esc>
+
+" 「日本語入力固定モード」切り替えキー
+inoremap <silent> <C-j> <C-^>
+
+" タブ切り替え
+nmap <Tab> gt
+nmap <S-Tab> gT
+
+" Programming
+set showmatch "対応する括弧を表示
+
+"set cindent "Cのインデント
+""set foldmethod=syntax
+set grepprg=internal "内蔵grep
+
+"-------------------------------------------
+" NERDTree
+"-------------------------------------------
+let NERDTreeShowHidden = 1
+let file_name = expand("%:p")
+if has('vim_starting') && file_name == ""
+    autocmd VimEnter * call ExecuteNERDTree()
+endif
