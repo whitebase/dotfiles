@@ -7,7 +7,7 @@
 set nocompatible
 filetype off
 com! -nargs=? Bundle
-set rtp+=~/.vim/bundle/vundle/
+set rtp+=~/.vim/vimfiles/vundle.git/
 silent! call vundle#rc()
 if !exists("*vundle#rc")
     set rtp+=~/.vim/bundle/pathogen
